@@ -1,0 +1,89 @@
+.form {
+  &__group:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+
+  &__input {
+    font-size: 2rem;
+    font-family: inherit;
+    padding: 1.5rem 2rem;
+    border: none;
+    background-color: rgba(#888, 0.3);
+    border-bottom: 3px solid transparent;
+    width: 85%;
+    display: block;
+    transition: all 0.4s;
+
+    &:focus {
+      outline: none;
+      box-shadow: 1rem 2rem 4rem rgba($color-black, 0.1);
+      border-bottom: 3px solid rgb(100, 165, 100);
+    }
+
+    &:focus:invalid {
+      border-bottom: 3px solid orange;
+    }
+  }
+
+  &__input:placeholder-shown + &__label {
+    transform: translateY(-4.5rem);
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  &__group-radio {
+    // width:50%;
+    margin: 2rem 0;
+    // display: inline-block;
+  }
+
+  &__group-label {
+    font-size: 1.6rem;
+    cursor: pointer;
+    position: relative;
+    padding-left: 4rem;
+  }
+
+  &__group-button {
+    width: 3rem;
+    height: 3rem;
+    border: 5px solid $color-tertiory-dark;
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: -0.1rem;
+
+    &:after {
+      content: "";
+      width: 1.3rem;
+      height: 1.3rem;
+      display: block;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: $color-tertiory-dark;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+  }
+
+  &__group-input {
+    display: none;
+  }
+
+  &__group-input:checked ~ &__group-label &__group-button:after {
+    opacity: 1;
+  }
+
+  &__label {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 0.7rem;
+    margin-left: 2rem;
+    display: block;
+    transition: all 0.4s;
+  }
+}

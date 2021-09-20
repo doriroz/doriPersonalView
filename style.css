@@ -1,0 +1,143 @@
+
+
+    *{
+      padding: 0;
+      margin: 0;
+      box-sizing: inherit;
+
+    }
+    html {
+      /* in order not to force the definition on the user chnges font-size, we will refer if with % ; */
+      /* so the defualt of 16px will be 100% */
+      /* for 10px we do 10/16   */
+      font-size: 62.5%;
+    }
+
+    body{
+      font-family:"Lato", sans-serif;
+      padding:1rem;
+      box-sizing: border-box;
+      
+    }
+
+    .header{
+      background-image: linear-gradient(to right,rgba(126, 213, 111,0.5),rgba(40, 180, 133,0.7)),url("beach.jpg");
+      background-size: 100vw 100vh;
+      background-position: top;
+      height: 95vh;
+      position: relative;
+      /* z-index: -1; */
+      
+    }
+    
+    .header__text-box{  
+      position:absolute;
+      top:40%;
+      left:50%;
+      transform:translate(-50%,-50%); 
+      text-align: center;
+      max-width: 61.5rem;                                                
+    }
+
+    .heading-main{
+      color:#666;
+      text-transform: uppercase;
+      font-weight:400;
+      text-align: left;
+      margin-bottom: 2rem;     
+  }
+
+    .heading-main--primary{
+      display: inline-block;
+      font-size: 5rem;
+      letter-spacing: 3.1rem;
+      animation-name:moveInLeft;
+      animation-duration: .7s ;
+
+    }
+
+
+    @keyframes moveInLeft{
+      0%{
+          
+          opacity:0;
+          transform: translateX(-100px)
+      }
+      80%{
+          transform: translateX(10px);
+      }
+      100%{
+          opacity: 1;
+          transform: translateX(0);
+          
+      }
+    }
+
+    .heading-main--secondary{
+      display: inline-block;
+      letter-spacing: .6rem;
+      font-size:3rem;
+      animation-name:moveInRight;
+      animation-duration: .7s ;
+    }
+
+    @keyframes moveInRight{
+
+      0%{
+          opacity:0;
+          transform:translateX(100px);
+      }
+      80%{
+          transform: translateX(-10px);
+      }
+      100%{
+          opacity: 1;
+          transform:translateX(0)
+      }
+    }
+
+    .btn:link, .btn:visited{
+      display: inline-block;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 2rem;
+      font-size: 2.4rem;
+      border-radius: 5rem; 
+      margin: 0 1.5rem;
+      position: relative;
+      transition: all .5s;
+    }
+
+    
+    .btn:after{
+      content: "";
+      display: inline-block;
+      border-radius: 5rem;
+      height:100%;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index:-1;
+      transition: all .5s;
+    }
+
+    .btn:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 10px 30px rgba(0,0,0,.2) ;
+    }
+
+    .btn:hover:after{
+      transform:scale(1.2);
+      opacity: 0;
+    }  
+    
+    .btn--white{
+      background-color: #fff;
+      color:#777;
+    }
+
+    .btn--white:after {
+      background-color: #fff;
+    }
+    

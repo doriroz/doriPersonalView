@@ -1,0 +1,93 @@
+.card{
+//FUNCTIONALITY
+    position: relative;
+    // transition: transform .8s ease;    
+    perspective: 1500px;
+    height: 40rem;
+    &__side{
+        transition: transform .8s ease;
+        backface-visibility: hidden;
+        position: absolute;
+        top:0;
+        left:0;
+        color:white;
+        font-size: 3rem;
+        height: 100%;
+        width: 100%;
+        border-radius: 3px;
+        box-shadow: 0 1.5rem 4rem rgba($color-black,.3);        
+        overflow: hidden; //the image flow on the card - in order not to hide the total card shape
+
+        &--front{
+            background-color: $color-white;
+        }
+
+        &--back{
+            transform: rotateY(180deg);
+            
+            &1{
+                background-image: linear-gradient(to bottom right,$color-secondary-light,$color-secondary-dark);
+            
+            }
+
+            &2{
+                background-image: linear-gradient(to bottom right,$color-tertiory-light,$color-tertiory-dark);
+            }
+        }
+    }
+    //card:hover card__side--front
+    &:hover &__side--front{
+        transform: rotateY(180deg);
+    }
+    //card:hover card__side--back
+    &:hover &__side--back{
+        transform: rotateY(0);
+    }
+
+//STYLED IMAGE    
+    &__picture{
+        background-size: cover;
+        height: 30rem;
+        background-blend-mode: screen;
+        // clip-path: in chrome breaks the overflow that was defined above
+        clip-path: polygon(0 0,100% 0,100% 85%,0 100%);
+        &--1{
+            background-image:linear-gradient(to right bottom,$color-secondary-light,$color-secondary-dark),url('../images/education.jpg');
+            // background-image:url('../images/education.jpg');
+        }
+
+        &--2{
+            background-image:linear-gradient(to right bottom,$color-tertiory-light,$color-tertiory-dark),url('../images/exeprience.jpg');
+            // background-image:url('../images/education.jpg');
+        }
+    }
+
+    &__heading{
+        font-size: 5rem;
+        font-weight: 300;
+        color:$color-white;
+        position: absolute;
+        // top:20rem;
+        bottom: 10rem;
+        right: 4rem;
+        text-align: right;
+        &--1{
+            background-image: linear-gradient(rgba($color-secondary-light,.85),rgba($color-secondary-dark,.5));
+        }
+
+        &--2{
+            background-image: linear-gradient(rgba($color-tertiory-light,.85),rgba($color-tertiory-dark,.5));
+        }
+        
+    }
+
+    &__detail{
+        position: absolute;
+        top:50%;
+        left:50%;
+        transform: translate(-50%,-50%);
+        font-size: 3rem;
+        width: 35rem;
+        line-height: 2;
+    }
+}
